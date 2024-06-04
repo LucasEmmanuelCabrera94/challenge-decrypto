@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PrincipalRepository extends JpaRepository<Principal, Long> {
-    boolean existsByDescription(String descripcion);
+    boolean existsByDescription(String description);
 }

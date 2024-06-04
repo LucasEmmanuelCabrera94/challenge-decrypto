@@ -8,12 +8,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Set;
 
 @Entity
 @Builder
 @Getter
+@Setter
 public class Principal { //Comitentes (en internet dicen que es la traduccion)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
