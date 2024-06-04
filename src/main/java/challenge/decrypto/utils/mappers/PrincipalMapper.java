@@ -11,9 +11,9 @@ public class PrincipalMapper {
         return PrincipalDTO.builder()
                 .id(principal.getId())
                 .description(principal.getDescription())
-                .markets(principal.getMarkets().stream()
+                /*.markets(principal.getMarkets().stream()
                         .map(MarketMapper::toDTO)
-                        .collect(Collectors.toList()))
+                        .collect(Collectors.toList()))*/
                 .build();
     }
 }
