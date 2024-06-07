@@ -63,6 +63,8 @@ public class PrincipalServiceImpl implements PrincipalService {
 
         if (request.getDescription() != null) {
             principal.setDescription(request.getDescription());
+        } else {
+            throw new BadRequestException("Debe proporcionar una descripción");
         }
 
         Principal updatedPrincipal = principalRepository.save(principal);

@@ -1,9 +1,15 @@
 package challenge.decrypto.controllers;
 
+import challenge.decrypto.models.exceptions.ErrorDTO;
 import challenge.decrypto.models.principals.PrincipalDTO;
 import challenge.decrypto.models.principals.PrincipalRequestDTO;
 import challenge.decrypto.models.principals.UpdatePrincipalRequestDTO;
 import challenge.decrypto.services.interfaces.PrincipalService;
+import challenge.decrypto.utils.exceptions.NotFoundException;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,16 +29,45 @@ public class PrincipalController {
     @Autowired
     private PrincipalService principalService;
 
+    @Operation(
+            description = "Endpoint para crear un nuevo comitente. " ,
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Comitente creado exitosamente",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = PrincipalDTO.class))),
+                    @ApiResponse(responseCode = "400", description = "Debe seleccionar al menos un mercado",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class))),
+                    @ApiResponse(responseCode = "404", description = "Comitente no econtrado",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class))),
+            }
+    )
     @PostMapping
     public PrincipalDTO createPrincipal(@RequestBody PrincipalRequestDTO request) {
         return principalService.createPrincipal(request);
     }
 
+    @Operation(
+            description = "Endpoint para buscar todos los comitentes " ,
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Comitente creado exitosamente",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = PrincipalDTO.class))),
+                    @ApiResponse(responseCode = "404", description = "Comitente no econtrado",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class))),
+            }
+    )
     @GetMapping
     public List<PrincipalDTO> getAll() {
         return principalService.getAllPrincipals();
     }
 
+    @Operation(
+            description = "Endpoint para buscar un comitente por Id." ,
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Comitente creado exitosamente",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = PrincipalDTO.class))),
+                    @ApiResponse(responseCode = "404", description = "Comitente no econtrado",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class))),
+            }
+    )
     @GetMapping("/{id}")
     public ResponseEntity<PrincipalDTO> getById(@PathVariable Long id) {
         PrincipalDTO principal = principalService.getPrincipalById(id);
@@ -43,6 +78,17 @@ public class PrincipalController {
         }
     }
 
+    @Operation(
+            description = "Endpoint para actualizar un comitente por Id." ,
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Comitente creado exitosamente",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = PrincipalDTO.class))),
+                    @ApiResponse(responseCode = "400", description = "Debe proporcionar una descripción",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class))),
+                    @ApiResponse(responseCode = "404", description = "Comitente no econtrado",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class))),
+            }
+    )
     @PutMapping("/{id}")
     public ResponseEntity<PrincipalDTO> updatePrincipal(@PathVariable Long id, @RequestBody UpdatePrincipalRequestDTO request) {
         PrincipalDTO updatedPrincipal = principalService.updatePrincipal(id, request);
@@ -53,6 +99,15 @@ public class PrincipalController {
         }
     }
 
+    @Operation(
+            description = "Endpoint para eliminar un comitente por Id." ,
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Comitente creado exitosamente",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = PrincipalDTO.class))),
+                    @ApiResponse(responseCode = "404", description = "Comitente no econtrado",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class))),
+            }
+    )
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePrincipal(@PathVariable Long id) {
         boolean deleted = principalService.deletePrincipal(id);
