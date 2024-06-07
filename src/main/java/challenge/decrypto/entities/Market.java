@@ -36,11 +36,6 @@ public class Market {
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
 
-    @ManyToMany
-    @JoinTable(
-            name = "principal_market",
-            joinColumns = @JoinColumn(name = "market_id"),
-            inverseJoinColumns = @JoinColumn(name = "principal_id")
-    )
+    @ManyToMany(mappedBy = "markets")
     private Set<Principal> principals;
 }

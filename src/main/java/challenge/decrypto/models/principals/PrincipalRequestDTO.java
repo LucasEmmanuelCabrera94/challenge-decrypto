@@ -7,7 +7,7 @@ import java.util.List;
 
 @Builder
 @Getter
-public class PrincipalRequest {
+public class PrincipalRequestDTO {
     private String description;
     private List<Long> markets;
 }

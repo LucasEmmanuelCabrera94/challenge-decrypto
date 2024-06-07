@@ -2,7 +2,6 @@ package challenge.decrypto.utils.mappers;
 
 import challenge.decrypto.entities.Principal;
 import challenge.decrypto.models.principals.PrincipalDTO;
-import challenge.decrypto.models.principals.PrincipalStatsDTO;
 
 import java.util.stream.Collectors;
 
