@@ -5,7 +5,6 @@ import challenge.decrypto.models.principals.PrincipalDTO;
 import challenge.decrypto.models.principals.PrincipalRequestDTO;
 import challenge.decrypto.models.principals.UpdatePrincipalRequestDTO;
 import challenge.decrypto.services.interfaces.PrincipalService;
-import challenge.decrypto.utils.exceptions.NotFoundException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
