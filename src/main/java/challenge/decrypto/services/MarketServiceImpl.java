@@ -89,10 +89,16 @@ public class MarketServiceImpl implements MarketService {
 
     @Override
     public boolean deleteMarket(Long id) {
-        if (!marketRepository.existsById(id)) {
-            throw new NotFoundException("Mercado no encontrado");
+        Market market = marketRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Mercado no encontrado"));
+
+
+        Set<Principal> principals = market.getPrincipals();
+        if (!principals.isEmpty()) {
+            principalRepository.deleteAll(principals);
         }
-        marketRepository.deleteById(id);
+
+        marketRepository.delete(market);
         return true;
     }
 

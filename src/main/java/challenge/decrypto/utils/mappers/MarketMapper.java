@@ -12,7 +12,7 @@ public class MarketMapper {
                 .id(market.getId())
                 .code(market.getCode())
                 .description(market.getDescription())
-                .country(market.getCountry())
+                .country(CountryMapper.toDTO(market.getCountry()))
                 .principals(market.getPrincipals().stream()
                         .map(PrincipalMapper::toMarketDTO)
                         .collect(Collectors.toList()))

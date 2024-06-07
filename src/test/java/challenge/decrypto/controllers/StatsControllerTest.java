@@ -34,10 +34,8 @@ public class StatsControllerTest {
 
     @BeforeEach
     public void setUp() {
-        // Initialize the mocks
         MockitoAnnotations.openMocks(this);
 
-        // Set up mock data
         statsList = new ArrayList<>();
         List<MarketStatsDTO> marketStatsList = new ArrayList<>();
         marketStatsList.add(MarketStatsDTO.builder().marketCode("MAE").principalQuantity("80.75").build());
@@ -54,7 +52,6 @@ public class StatsControllerTest {
 
     @Test
     public void testGetStats_Success() throws Exception {
-        // Mock the service method
         when(statsService.getStats()).thenReturn(statsList);
 
         String expectedJson = "[{" +
@@ -71,7 +68,6 @@ public class StatsControllerTest {
                 "]" +
                 "}]";
 
-        // Perform the GET request and verify the response
         mockMvc.perform(get("/stats"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"))
