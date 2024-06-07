@@ -5,6 +5,7 @@ import lombok.Getter;
 
 @Builder
 @Getter
-public class MarketDTO {
-    private String code;
+public class MarketStatsDTO {
+    private String marketCode;
+    private String principalQuantity;
 }
