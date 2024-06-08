@@ -1,0 +1,9 @@
+challenge/decrypto/services/PrincipalServiceImplTest.class
+challenge/decrypto/DecryptoApplicationTests.class
+challenge/decrypto/controllers/PrincipalControllerTest.class
+challenge/decrypto/controllers/MarketControllerTest.class
+challenge/decrypto/controllers/StatsControllerTest.class
+challenge/decrypto/services/StatsServiceImplTest.class
+challenge/decrypto/services/CountryServiceImplTest.class
+challenge/decrypto/controllers/CountryControllerTest.class
+challenge/decrypto/services/MarketServiceImplTest.class
