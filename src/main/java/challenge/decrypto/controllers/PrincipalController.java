@@ -33,9 +33,9 @@ public class PrincipalController {
             responses = {
                     @ApiResponse(responseCode = "200", description = "Comitente creado exitosamente",
                             content = @Content(mediaType = "application/json", schema = @Schema(implementation = PrincipalDTO.class))),
-                    @ApiResponse(responseCode = "400", description = "Debe seleccionar al menos un mercado",
+                    @ApiResponse(responseCode = "400", description = "Los datos ingresados son incorrectos",
                             content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class))),
-                    @ApiResponse(responseCode = "404", description = "Comitente no econtrado",
+                    @ApiResponse(responseCode = "404", description = "Mercado no econtrado",
                             content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class))),
             }
     )

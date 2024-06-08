@@ -16,6 +16,7 @@ import challenge.decrypto.utils.mappers.MarketMapper;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -33,6 +34,11 @@ public class MarketServiceImpl implements MarketService {
     @Override
     public MarketDTO createMarket(MarketRequestDTO request) {
         validateMarketRequestDTO(request);
+
+        Optional<Market> existingMarket = marketRepository.findByCode(request.getCode());
+        if (existingMarket.isPresent()) {
+            throw new BadRequestException("Ya existe un mercado con el código proporcionado");
+        }
 
         Country country = countryRepository.findByName(request.getCountry()).orElseThrow(() -> new NotFoundException("Pais no encontrado"));
         Set<Principal> principals = fetchPrincipals(request.getPrincipals());

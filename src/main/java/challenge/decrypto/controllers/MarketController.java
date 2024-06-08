@@ -35,7 +35,7 @@ public class MarketController {
                             content = @Content(mediaType = "application/json", schema = @Schema(implementation = MarketDTO.class))),
                     @ApiResponse(responseCode = "400", description = "Los datos ingresados son incorrectos",
                             content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class))),
-                    @ApiResponse(responseCode = "404", description = "Mercado no econtrado",
+                    @ApiResponse(responseCode = "404", description = "Comitente no econtrado",
                             content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class))),
             }
     )
