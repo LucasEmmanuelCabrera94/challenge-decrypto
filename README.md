@@ -57,3 +57,16 @@ El endpoint /stats no muestra los datos en porcentajes. En su lugar, se decidió
 ## Desafío Personal
 
 El nivel 3 de este proyecto representa un desafío significativo para mí, ya que no tengo experiencia previa en manejar despliegues en servicios de cloud computing ni en asegurar el rendimiento bajo altas cargas de tráfico. Sin embargo, estoy comprometido a aprender y superar este desafío, ya que es una oportunidad valiosa para mejorar mis habilidades y enfrentar nuevos retos.
+
+## Sobre el desafio personal
+
+Después de investigar y realizar ajustes, logré subir el código a Google Cloud y realizar el despliegue con éxito:
+
+![img.png](src/main/resources/images/img_3.png)
+
+![img_1.png](src/main/resources/images/img_4.png)
+
+Sin embargo, al acceder al Appspot, me encontré con un error 502. Continué investigando para resolver este problema, pero no logré encontrar una solución definitiva. Es evidente que puede haber detalles que se me hayan pasado por alto al no estar familiarizado con este proceso.
+
+
+![img_2.png](src/main/resources/images/img_2.png)
